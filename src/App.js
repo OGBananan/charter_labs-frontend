@@ -8,24 +8,24 @@ const App = () => {
   const [notification, setNotification] = useState(null);  // State for managing notification
   const [fcmToken, setFcmToken] = useState(null);  // State for storing FCM token
 
-  // Request Firebase Cloud Messaging token when the component loads
-  useEffect(() => {
-    requestForToken(setFcmToken);
-  }, []);
+  // // Request Firebase Cloud Messaging token when the component loads
+  // useEffect(() => {
+  //   requestForToken(setFcmToken);
+  // }, []);
 
-  // Listen for Firebase Cloud Messaging notifications
-  useEffect(() => {
-    const getNotifications = async () => {
-      const payload = await onMessageListener();  // Wait for a new message
-      console.log('Message received:', payload);
-      const { from, to, value } = payload.data || {};  // Assuming your FCM message has these fields
-      setNotification({
-        message: `${value} USDC from ${from} to ${to}`,
-      });
-    };
+  // // Listen for Firebase Cloud Messaging notifications
+  // useEffect(() => {
+  //   const getNotifications = async () => {
+  //     const payload = await onMessageListener();  // Wait for a new message
+  //     console.log('Message received:', payload);
+  //     const { from, to, value } = payload.data || {};  // Assuming your FCM message has these fields
+  //     setNotification({
+  //       message: `${value} USDC from ${from} to ${to}`,
+  //     });
+  //   };
 
-    getNotifications();
-  }, []);
+  //   getNotifications();
+  // }, []);
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value);

@@ -1,32 +1,36 @@
-import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+// import { initializeApp } from "firebase/app";
+// import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
-// Initialize Firebase
-const app = initializeApp({
-    "apiKey": process.env.apiKey,
-    "authDomain": process.env.authDomain,
-    "projectId": process.env.projectId,
-    "storageBucket": process.env.storageBucket,
-    "messagingSenderId": process.env.messagingSenderId,
-    "appId": process.env.appId,
-    "measurementId": process.env.measurementId
-});
-const messaging = getMessaging(app);
+// const firebaseConfig = {
+//     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+//     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+//     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+//     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+//     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+//     appId: process.env.REACT_APP_FIREBASE_APP_ID,
+//     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+// };
 
-// Request permission and get token for notifications
-export const requestForToken = async (setToken) => {
-    try {
-        const token = await getToken(messaging);
-        setToken(token);
-    } catch (err) {
-        console.error("Error getting token", err);
-    }
-};
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
 
-// Listen for incoming messages
-export const onMessageListener = () =>
-    new Promise((resolve) => {
-        onMessage(messaging, (payload) => {
-            resolve(payload);
-        });
-    });
+
+// const messaging = getMessaging(app);
+
+// // Request permission and get token for notifications
+// export const requestForToken = async (setToken) => {
+//     try {
+//         const token = await getToken(messaging);
+//         setToken(token);
+//     } catch (err) {
+//         console.error("Error getting token", err);
+//     }
+// };
+
+// // Listen for incoming messages
+// export const onMessageListener = () =>
+//     new Promise((resolve) => {
+//         onMessage(messaging, (payload) => {
+//             resolve(payload);
+//         });
+//     });
