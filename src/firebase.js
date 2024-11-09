@@ -16,7 +16,7 @@ const messaging = getMessaging(app);
 // Request permission and get token for notifications
 export const requestForToken = async (setToken) => {
     try {
-        const token = await getToken(messaging, { vapidKey: firebaseConfig.vapidKey });
+        const token = await getToken(messaging);
         setToken(token);
     } catch (err) {
         console.error("Error getting token", err);
